@@ -1,2 +1,3 @@
 # Estoque_Producao
- ProjetoBrilhador
+ - Entidade de setores;
+ - 
