@@ -3,6 +3,8 @@ package estq.producao.ws.domain;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import java.util.List;
 
 @Entity
 public class Processo {
@@ -13,6 +15,9 @@ public class Processo {
 
     private String nome;
     private String descricao;
+
+    @OneToMany(mappedBy = "processo")
+    private List<MaterialProcesso> materiais;
 
     public Processo() {
 
@@ -50,5 +55,13 @@ public class Processo {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public List<MaterialProcesso> getMateriais() {
+        return materiais;
+    }
+
+    public void setMateriais(List<MaterialProcesso> materiais) {
+        this.materiais = materiais;
     }
 }
