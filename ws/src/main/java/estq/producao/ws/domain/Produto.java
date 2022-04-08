@@ -1,8 +1,6 @@
 package estq.producao.ws.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Produto {
@@ -15,7 +13,13 @@ public class Produto {
     private String nome;
     private int quantidade;
     private String unidade;
-   
+
+    @Column(name = "id_setor")
+    private long idSetor;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="id_setor", updatable = false, insertable = false)
+    private Setor setor;
 
     public Produto() { 
 
@@ -73,6 +77,14 @@ public class Produto {
 
     public void setUnidade(String unidade) {
         this.unidade = unidade;
+    }
+
+    public long getIdSetor() {
+        return idSetor;
+    }
+
+    public void setIdSetor(long idSetor) {
+        this.idSetor = idSetor;
     }
 }
  

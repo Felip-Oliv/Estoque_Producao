@@ -1,8 +1,6 @@
 package estq.producao.ws.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Material {
@@ -14,6 +12,13 @@ public class Material {
     private int validade;
     private int quantidade;
     private String unidade;
+
+    @Column(name = "id_setor")
+    private long idSetor;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="id_setor", updatable = false, insertable = false)
+    private Setor setor;
 
     public Material() {
     }
@@ -84,5 +89,13 @@ public class Material {
         this.validade = materialAtualizado.getValidade();
         this.quantidade = materialAtualizado.getQuantidade();
         this.unidade = materialAtualizado.getUnidade();
+    }
+
+    public long getIdSetor() {
+        return idSetor;
+    }
+
+    public void setIdSetor(long idSetor) {
+        this.idSetor = idSetor;
     }
 }
