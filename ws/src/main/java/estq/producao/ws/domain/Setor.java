@@ -16,12 +16,12 @@ public class Setor {
 
     }
 
-    public Setor(String cod, String descricao) {
+    public Setor(String cod, String codigo) {
         this.cod = cod;
     }
 
-    public void atualizarSetor(Setor SetorAlterado) {
-        this.cod = SetorAlterado.getcod();
+    public void atualizarSetor(Setor setorAlterado) {
+        this.cod = setorAlterado.getcod();
     }
 
     public long getId() {

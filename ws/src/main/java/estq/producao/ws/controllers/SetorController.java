@@ -5,7 +5,7 @@ import estq.producao.ws.domain.Setor;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/Setor")
+@RequestMapping("/setor")
 public class SetorController {
 
     private final SetorRepository repository;
@@ -15,7 +15,7 @@ public class SetorController {
     }
 
     @GetMapping()
-    <setor> Iterable<Setor> listar() {
+    Iterable<Setor> listar() {
         return repository.findAll();
     }
 
