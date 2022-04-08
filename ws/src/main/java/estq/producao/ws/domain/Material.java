@@ -5,42 +5,46 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class material {
+public class Material {
     @Id
     @GeneratedValue
-    private Long id;
+    private long id;
 
     private String name;
     private int validade;
     private int quantidade;
     private String unidade;
 
-    public material(String name, int validade, int quantidade, String unidade) {
+    public Material() {
+    }
+
+    public Material(long id, String name, int validade, int quantidade, String unidade) {
+        this.id = id;
+        this.name = name;
+        this.validade = validade;
+        this.quantidade = quantidade;
+        this.unidade = unidade;
+    }
+
+    public Material(String name, int validade, int quantidade, String unidade) {
         this.name = name;
         this.validade = validade;
         this.quantidade = quantidade;
         this.unidade = unidade;
     }
 
-    public material() {
-    }
-
-    public material(long id, String name, int validade) {
+    public Material(long id, String name, int validade) {
         this.id = id;
         this.name = name;
         this.validade = validade;
-    }
-
-    public material(long id, String name, int validade, int quantidade, String unidade) {
-        this.id = id;
-        this.name = name;
-        this.validade = validade;
-        this.quantidade = quantidade;
-        this.unidade = unidade;
     }
 
     public long getId() {
         return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getUnidade() {
@@ -75,7 +79,10 @@ public class material {
         this.name = name;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void atualizarMaterial(Material materialAtualizado) {
+        this.name = materialAtualizado.getName();
+        this.validade = materialAtualizado.getValidade();
+        this.quantidade = materialAtualizado.getQuantidade();
+        this.unidade = materialAtualizado.getUnidade();
     }
 }
